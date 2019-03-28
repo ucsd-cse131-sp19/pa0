@@ -1,6 +1,6 @@
-name:                hw0-warmup
+name:                pa0
 version:             0.1.0.0
-synopsis:            Starter code for cse131 homework/00-warmup
+synopsis:            Starter code for cse131 homework/pa0
 license:             MIT
 license-file:        LICENSE
 author:              Ranjit Jhala
@@ -27,12 +27,12 @@ test-suite test
   main-is:          Test.hs
   other-modules:    GradeScope
   build-depends:    base,
+                    pa0,
                     directory,
                     filepath,
                     process,
                     tasty,
                     tasty-hunit,
-                    hw0-warmup,
                     json,
                     stm,
                     mtl,

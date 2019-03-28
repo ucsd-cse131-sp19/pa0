@@ -10,8 +10,8 @@ endif
 endif
 
 COURSE=cs131w
-ASGN=00
-COMPILER=warmup
+ASGN=pa0
+TARBALL=$(ASGN).tgz
 
 test: clean
 	$(STACK) test 
@@ -29,9 +29,8 @@ tags:
 	hasktags -x -c lib/
 
 turnin: 
-	# rm -rf .stack-work
-	rm -rf $(ASGN)-$(COMPILER).tgz
-	tar -zcvf ../$(ASGN)-$(COMPILER).tgz --exclude .stack-work --exclude .git ../$(ASGN)-$(COMPILER) 	
-	mv ../$(ASGN)-$(COMPILER).tgz . 
-	turnin -c $(COURSE) ./$(ASGN)-$(COMPILER).tgz
+	rm -rf $(TARBALL)
+	tar -zcvf ../$(TARBALL) --exclude .stack-work --exclude .git ../$(ASGN)
+	mv ../$(TARBALL) . 
+	turnin -c $(COURSE) ./$(TARBALL)
 
