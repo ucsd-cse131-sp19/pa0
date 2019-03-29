@@ -159,7 +159,7 @@ instance JSON TestResult where
       [ ("name"       , showJSON resultName)
       , ("score"      , showJSON score)
       , ("max_score"  , showJSON resultWeight)
-      , ("number"     , showJSON resultId)
+      , ("number"     , showJSON (show resultId))
       , ("output"     , showJSON (Runners.resultDescription resultMetadata))
       , ("visibility" , showJSON resultVisible)
       ]
