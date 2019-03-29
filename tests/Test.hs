@@ -33,67 +33,67 @@ unit1 sc = testGroup "Unit 1"
       sumList
       [1, 2, 3, 4]
       10
-      "sample: sumList 1"
+      "sumList 1"
   , mkTest
       sumList
       [1, -2, 3, 5]
       7
-      "sample: sumList 2"
+      "sumList 2"
   , mkTest
       sumList
       [1, 3, 5, 7, 9, 11]
       36
-      "sample: sumList 3"
+      "sumList 3"
   , mkTest
       digitsOfInt
       3124
       [3, 1, 2, 4]
-      "sample: digitsOfInt 1"
+      "digitsOfInt 1"
   , mkTest
       digitsOfInt
       352663
       [3, 5, 2, 6, 6, 3]
-      "sample: digitsOfInt 2"
+      "digitsOfInt 2"
   , mkTest
       digits
       31243
       [3, 1, 2, 4, 3]
-      "sample: digits 1"
+      "digits 1"
   , mkTest
       digits
       (-23422)
       [2, 3, 4, 2, 2]
-      "sample: digits 2"
+      "digits 2"
   , mkTest
       additivePersistence
       9876
       2
-      "sample: additivePersistence 1"
+      "additivePersistence 1"
   , mkTest
       digitalRoot
       9876
       3
-      "sample: digitalRoot"
+      "digitalRoot"
   , mkTest
       listReverse
       [1, 2, 3, 4]
       [4, 3, 2, 1]
-      "sample: reverse 1"
+      "reverse 1"
   , mkTest
       listReverse
       ["a", "b", "c", "d"]
       ["d", "c", "b", "a"]
-      "sample: rev 2"
+      "rev 2"
   , mkTest
       palindrome
       "malayalam"
       True
-      "sample: palindrome 1"
+      "palindrome 1"
   , mkTest
       palindrome
       "myxomatosis"
       False
-      "sample: palindrome 2"
+      "palindrome 2"
   ]
   where
     mkTest :: (Show b, Eq b) => (a -> b) -> a -> b -> String -> TestTree
@@ -151,9 +151,12 @@ scoreTest' :: (Show b, Eq b) => Score -> ((a -> b), a, b, Int, String) -> TestTr
 scoreTest' sc (f, x, expR, points, name) =
   testCase name $ do
     updateTotal sc points
-    if (f x == expR)
-      then updateCurrent sc points
-      else assertFailure "Wrong Result"
+    result <- try $ evaluate (f x)
+    case result of
+       Left (e :: SomeException)  -> assertFailure "Wrong Result"
+       Right r -> if (r == expR)
+                  then updateCurrent sc points
+                  else assertFailure "Wrong Result"
 
 updateTotal :: Score -> Int -> IO ()
 updateTotal sc n = modifyIORef sc (\(x, y) -> (x, y + n))
