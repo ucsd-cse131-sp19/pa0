@@ -1,6 +1,5 @@
 ---
-title: HW 0, due 1/19/2018
-headerImg: angles.jpg
+title: HW 0, due 4/12/2019
 ---
 
 ## Download
@@ -80,26 +79,21 @@ but you will not be graded on this.
 
 ## Submission Instructions
 
-Before submitting your code, you have to fill [this form](https://goo.gl/forms/x5hm2FlSdxsmTYav1) 
-to register your groups. We will use this form to match your ieng account
-username to your student id, so you **must** fill it even if you have
-worked on the assignment individually.
+We will be using [Gradescope](www.gradescope.com) for homework collection and grading.
 
-To submit your code, just do:
+To submit your assignment, first create a `zip` file of your submission by running the following from assignment's root directory:
 
 ```bash
-$ make turnin 
+$ make zip
 ```
 
-`turnin` will provide you with a confirmation of the
-submission process; make sure that the size of the file
-indicated by `turnin` matches the size of your file.
-See the ACS Web page on [turnin](http://acs.ucsd.edu/info/turnin.php)
-for more information on the operation of the program.
+This will create a zip file that you can proceed to upload to Gradescope.
+That's it! You should receive feedback from Gradescope as soon as the submission
+is graded.
 
 ## Problem 1: [Roots and Persistence](http://mathworld.wolfram.com/AdditivePersistence.html)
 
-### (a) 10 points
+### (a) 3 points
 
 Fill in the implementation of
 
@@ -123,7 +117,7 @@ ghci> sumList [1, 3, 5, 7, 9, 11]
 36
 ```
 
-## (b) 10 points
+## (b) 4 points
 
 Fill in the implementation of the function
 
@@ -147,7 +141,7 @@ ghci> digitsOfInt 352663
 [3, 5, 2, 6, 6, 3]
 ```
 
-### (c) 10+10 points
+### (c) 2 points
 
 Consider the process of taking a number, adding its digits,
 then adding the digits of the number derived from it, etc.,
@@ -185,7 +179,7 @@ ghci> digitalRoot 9876
 
 ## Problem 2: Palindromes
 
-### (a) 15 points
+### (a) 4 points
 
 Without using any built-in functions (e.g. `reverse`),
 write an function:
@@ -207,7 +201,7 @@ ghci> listReverse ["a", "b", "c", "d"]
 ["d", "c", "b", "a"]
 ```
 
-###(b) 10 points
+### (b) 4 points
 
 A *palindrome* is a word that reads the same from left-to-right and
 right-to-left. Write a function
@@ -229,7 +223,7 @@ False
 
 ## Problem 3: Folding Warm-Up
 
-### (a) 15 points
+### (a) 3 points
 
 Fill in the skeleton given for `sqsum`,
 which uses `foldl'` (the equivalent of Ocaml's `List.fold_left`)
@@ -260,7 +254,7 @@ ghci> sqSum [(-1), (-2), (-3), (-4)]
 30
 ```
 
-### (b) 30 points
+### (b) 3 points
 Fill in the skeleton given for `pipe` which uses `foldl'`
 to get a function
 
@@ -291,7 +285,7 @@ ghci> pipe [(\x -> x * 4), (\x -> x + x)] 3
 ```
 
 
-### (c) 20 points
+### (c) 3 points
 
 Fill in the skeleton given for `sepConcat`,
 which uses `foldl'` to get a function
@@ -333,7 +327,7 @@ ghci> sepConcat "X" ["hello"]
 "hello"
 ```
 
-### (d) 10 points
+### (d) 4 points
 
 Implement the function
 
@@ -376,7 +370,7 @@ ghci> let x = 99999999999999999999999999999999999999999999999 :: Int
 You will now implement functions to manipulate arbitrarily large
 numbers represented as `[Int]`, i.e. lists of `Int`.
 
-### (a) 10 + 5 + 10 points
+### (a) 9 points
 
 Write a function
 
@@ -438,7 +432,7 @@ ghci> removeZero [0, 0, 0, 0]
 []
 ```
 
-### (b) 25 points
+### (b) 3 points
 
 Let us use the list `[d1, d2, ..., dn]`, where each `di`
 is between `0` and `9`, to represent the (positive)
@@ -469,7 +463,7 @@ ghci> bigAdd [9, 9, 9, 9] [9, 9, 9]
 [1, 0, 9, 9, 8]
 ```
 
-### (c) 15 + 20 points
+### (c) 7 points
 
 Next you will write functions to multiply two big integers.
 First write a function

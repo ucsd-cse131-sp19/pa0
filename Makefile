@@ -9,9 +9,9 @@ ifeq ($(UNAME), Darwin)
 endif
 endif
 
-COURSE=cs131w
+COURSE=cs131-a
 ASGN=pa0
-TARBALL=$(ASGN).tgz
+ZIP=$(ASGN).zip
 
 test: clean
 	$(STACK) test 
@@ -28,9 +28,6 @@ distclean: clean
 tags:
 	hasktags -x -c lib/
 
-turnin: 
-	rm -rf $(TARBALL)
-	tar -zcvf ../$(TARBALL) --exclude .stack-work --exclude .git ../$(ASGN)
-	mv ../$(TARBALL) . 
-	turnin -c $(COURSE) ./$(TARBALL)
-
+zip:
+	rm -rf $(ZIP)
+	cd lib && zip ../$(ZIP) Hw0.hs
