@@ -79,7 +79,7 @@ but you will not be graded on this.
 
 ## Submission Instructions
 
-We will be using [Gradescope](www.gradescope.com) for homework collection and grading.
+We will be using [Gradescope](http://www.gradescope.com) for homework collection and grading.
 
 To submit your assignment, first create a `zip` file of your submission by running the following from assignment's root directory:
 
