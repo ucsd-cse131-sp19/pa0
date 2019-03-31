@@ -5,8 +5,8 @@ title: HW 0, due 4/12/2019
 ## Download
 
 ```bash 
-$ git clone https://github.com/ucsd-cse131/00-warmup.git
-$ cd 00-warmup/
+$ git clone https://github.com/ucsd-cse131-sp19/pa0.git
+$ cd pa0/
 ```
 
 ## Overview
@@ -285,7 +285,7 @@ ghci> pipe [(\x -> x * 4), (\x -> x + x)] 3
 ```
 
 
-### (c) 3 points
+### (c) 4 points
 
 Fill in the skeleton given for `sepConcat`,
 which uses `foldl'` to get a function
@@ -400,7 +400,7 @@ which takes two lists: `[x1,...,xn]` `[y1,...,ym]` and
 adds zeros in front of the _shorter_ list to make the
 lists equal.
 
-Your implementation should *not** be recursive.
+Your implementation should **not** be recursive.
 
 You should get the following behavior:
 
